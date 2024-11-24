@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://dtgluwwy66ffg"]
+
+[ext_resource type="Script" path="res://area_2d_food_01.gd" id="1_dayfu"]
+[ext_resource type="Texture2D" uid="uid://byhucls0x8mi6" path="res://food_03.png" id="2_s8shy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f5w8t"]
+size = Vector2(242.782, 147.315)
+
+[node name="Area2D_food_01" type="Area2D"]
+position = Vector2(-200, -13)
+script = ExtResource("1_dayfu")
+
+[node name="Sprite2D2_food_01" type="Sprite2D" parent="."]
+position = Vector2(355, 240)
+scale = Vector2(0.178371, 0.178371)
+texture = ExtResource("2_s8shy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(355.412, 239.926)
+rotation = 0.787566
+scale = Vector2(0.178371, 0.178371)
+shape = SubResource("RectangleShape2D_f5w8t")
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

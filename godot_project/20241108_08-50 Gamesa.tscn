@@ -1,0 +1,107 @@
+[gd_scene load_steps=14 format=3 uid="uid://bgpcr60ijsfx6"]
+
+[ext_resource type="Texture2D" uid="uid://dtbbtqmugvndg" path="res://Untitled (33) OK.png" id="1_vrqno"]
+[ext_resource type="Texture2D" uid="uid://cunt476i41d8e" path="res://haloween_02.png" id="2_aikll"]
+[ext_resource type="Texture2D" uid="uid://vmy05hp0p1w0" path="res://haloween_01.png" id="3_r1hli"]
+[ext_resource type="Script" path="res://character_body_2d.gd" id="4_p1f08"]
+[ext_resource type="Texture2D" uid="uid://bbaoljdl2eq5n" path="res://Fairy-Tiny-Style-2D-Character-Sprites static.png" id="5_nlo5q"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_81fpv"]
+radius = 145.871
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8p4ot"]
+radius = 156.976
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u3rlq"]
+size = Vector2(1149, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0xhr5"]
+size = Vector2(1054.25, 26)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mcwcj"]
+size = Vector2(1044, 29)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hbcul"]
+size = Vector2(1008, 26.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6r30n"]
+size = Vector2(968, 27.25)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_schc4"]
+radius = 45.0694
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Sprite2D_background" type="Sprite2D" parent="."]
+texture = ExtResource("1_vrqno")
+
+[node name="Area2D_food_02" type="Area2D" parent="."]
+position = Vector2(-20, -16)
+
+[node name="Sprite2D2_food_02" type="Sprite2D" parent="Area2D_food_02"]
+position = Vector2(354, 246)
+scale = Vector2(0.178371, 0.178371)
+texture = ExtResource("2_aikll")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D_food_02"]
+position = Vector2(354, 246)
+scale = Vector2(0.178371, 0.178371)
+shape = SubResource("CircleShape2D_81fpv")
+
+[node name="Area2D_food_01" type="Area2D" parent="."]
+position = Vector2(-200, -13)
+
+[node name="Sprite2D2_food_01" type="Sprite2D" parent="Area2D_food_01"]
+position = Vector2(355, 240)
+scale = Vector2(0.178371, 0.178371)
+texture = ExtResource("3_r1hli")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D_food_01"]
+position = Vector2(355, 242)
+scale = Vector2(0.178371, 0.178371)
+shape = SubResource("CircleShape2D_8p4ot")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(-346, 270)
+
+[node name="CollisionShape2D_P1" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(352, 96)
+shape = SubResource("RectangleShape2D_u3rlq")
+
+[node name="CollisionShape2D_P2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(347, -107)
+rotation = 3.14159
+shape = SubResource("RectangleShape2D_0xhr5")
+one_way_collision = true
+
+[node name="CollisionShape2D_P3" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(352, -286.5)
+shape = SubResource("RectangleShape2D_mcwcj")
+
+[node name="CollisionShape2D_P4" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(371, -457.25)
+shape = SubResource("RectangleShape2D_hbcul")
+
+[node name="CollisionShape2D_P5" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(363, -612.625)
+shape = SubResource("RectangleShape2D_6r30n")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+position = Vector2(65, 240)
+script = ExtResource("4_p1f08")
+
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
+position = Vector2(-35, 6)
+zoom = Vector2(2, 2)
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
+position = Vector2(-34, 5)
+scale = Vector2(0.601373, 0.601373)
+texture = ExtResource("5_nlo5q")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(-37, 8)
+shape = SubResource("CircleShape2D_schc4")
+
+[connection signal="body_entered" from="Area2D_food_02" to="CharacterBody2D" method="_on_area_2d_food_02_body_entered"]
+[connection signal="body_entered" from="Area2D_food_01" to="CharacterBody2D" method="_on_area_2d_food_01_body_entered"]

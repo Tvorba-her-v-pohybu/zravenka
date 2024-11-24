@@ -1,0 +1,102 @@
+[gd_scene load_steps=14 format=3 uid="uid://ddboybmc5ly4e"]
+
+[ext_resource type="Texture2D" uid="uid://dtbbtqmugvndg" path="res://Untitled (33) OK.png" id="2_nus4l"]
+[ext_resource type="Texture2D" uid="uid://cd444f3kjh2ef" path="res://food_02.png" id="3_b36nn"]
+[ext_resource type="Script" path="res://character_body_2d.gd" id="3_tapr4"]
+[ext_resource type="Texture2D" uid="uid://d0h5h3a4ji3bw" path="res://food_01.png" id="4_6w5c8"]
+[ext_resource type="Texture2D" uid="uid://bbaoljdl2eq5n" path="res://Fairy-Tiny-Style-2D-Character-Sprites static.png" id="4_75hf2"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_81fpv"]
+radius = 145.871
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8p4ot"]
+radius = 125.36
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u3rlq"]
+size = Vector2(1149, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0xhr5"]
+size = Vector2(1054.25, 26)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mcwcj"]
+size = Vector2(1044, 29)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hbcul"]
+size = Vector2(1008, 26.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6r30n"]
+size = Vector2(968, 27.25)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_schc4"]
+radius = 45.0694
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Sprite2D_background" type="Sprite2D" parent="."]
+texture = ExtResource("2_nus4l")
+
+[node name="Area2D_food_02" type="Area2D" parent="."]
+position = Vector2(73, -27)
+
+[node name="Sprite2D2_food_02" type="Sprite2D" parent="Area2D_food_02"]
+position = Vector2(354, 246)
+scale = Vector2(0.178371, 0.178371)
+texture = ExtResource("3_b36nn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D_food_02"]
+position = Vector2(354, 245)
+scale = Vector2(0.178371, 0.178371)
+shape = SubResource("CircleShape2D_81fpv")
+
+[node name="Area2D_food_01" type="Area2D" parent="."]
+position = Vector2(0, 1)
+
+[node name="Sprite2D2_food_01" type="Sprite2D" parent="Area2D_food_01"]
+position = Vector2(354.875, 244.372)
+scale = Vector2(0.178371, 0.178371)
+texture = ExtResource("4_6w5c8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D_food_01"]
+position = Vector2(354, 245)
+scale = Vector2(0.178371, 0.178371)
+shape = SubResource("CircleShape2D_8p4ot")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(-346, 270)
+
+[node name="CollisionShape2D_P1" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(352, 96)
+shape = SubResource("RectangleShape2D_u3rlq")
+
+[node name="CollisionShape2D_P2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(347, -107)
+shape = SubResource("RectangleShape2D_0xhr5")
+
+[node name="CollisionShape2D_P3" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(352, -286.5)
+shape = SubResource("RectangleShape2D_mcwcj")
+
+[node name="CollisionShape2D_P4" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(371, -457.25)
+shape = SubResource("RectangleShape2D_hbcul")
+
+[node name="CollisionShape2D_P5" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(363, -612.625)
+shape = SubResource("RectangleShape2D_6r30n")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+position = Vector2(65, 240)
+script = ExtResource("3_tapr4")
+
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
+position = Vector2(-35, 6)
+zoom = Vector2(2, 2)
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
+position = Vector2(-34, 5)
+scale = Vector2(0.601373, 0.601373)
+texture = ExtResource("4_75hf2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(-37, 8)
+shape = SubResource("CircleShape2D_schc4")
