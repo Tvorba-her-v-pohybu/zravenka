@@ -1,6 +1,8 @@
 extends Node2D
 @onready var my_timer = $Timer
 @onready var pocitadlo_zmenseni = 0
+
+#KOMENTAR
 func _ready():
 	my_timer.timeout.connect(_on_timer_timeout)
 	my_timer.wait_time = 1000.0
