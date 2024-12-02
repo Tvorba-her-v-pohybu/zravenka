@@ -169,18 +169,11 @@ scale = Vector2(0.0600001, 0.0600001)
 texture = ExtResource("8_chgpm")
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 0.1
-autostart = true
 script = ExtResource("9_asatr")
-
-[node name="Area2D_food_03" parent="." instance=ExtResource("5_ynd8f")]
-position = Vector2(-563, -4)
-
-[node name="Area2D_food_04" parent="." instance=ExtResource("5_ynd8f")]
-position = Vector2(-104, -120)
 
 [connection signal="body_entered" from="Area2D_platform_2" to="CharacterBody2D" method="_on_area_2d_platform_2radsinova_body_entered"]
 [connection signal="body_entered" from="Area2D_platform_3" to="CharacterBody2D" method="_on_area_2d_platform_3_body_entered"]
 [connection signal="body_entered" from="Area2D_platform_4" to="CharacterBody2D" method="_on_area_2d_platform_4_body_entered"]
 [connection signal="body_entered" from="Area2D_platform_5" to="CharacterBody2D" method="_on_area_2d_platform_5_body_entered"]
 [connection signal="body_entered" from="Area2D_food_02" to="CharacterBody2D" method="_on_area_2d_food_02_body_entered"]
+[connection signal="body_entered" from="Area2D_food_01" to="CharacterBody2D" method="_on_area_2d_food_01_body_entered"]
